@@ -20,16 +20,12 @@ def getCursor():
   db = MySQLdb.connect(unix_socket='/cloudsql/' + INSTANCE_NAME, db=DB_NAME, user=DB_USER, passwd=DB_PASS, charset='utf8')
   return db.cursor()
 
-
-# @app.route('/predict/generateNewRecommendations', methods=['GET'])
-# def generateNewRecommendation():
-  
-
 @app.route('/predict/getRecommendations', methods=['GET'])
 def getRecommendation():
   # Fetch the recommendations
   cursor = getCursor()
   cursor.execute('SELECT userId FROM CurrentUser WHERE id = ' + CURRENT_USER_ID)
+  print("Here Result:")
   userId = cgi.escape(cursor.fetchall()[0][0])
   print("Here Result:", userId)
   cursor.execute('SELECT title, category, price, tax r.prediction \
@@ -68,7 +64,7 @@ def login():
   # should we return a response?
 
 @app.route('/predict/signup', methods=['POST'])
-def login():
+def signup():
   content = request.json
   cursor = getCursor()
   cursor.execute('INSERT INTO User VALUES (' + content["firstName"]  + ', '
