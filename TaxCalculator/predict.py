@@ -16,7 +16,7 @@ conf = SparkConf().setAppName("app_collaborative")
 sc = SparkContext(conf=conf)
 sc.setCheckpointDir('checkpoint/')
 sqlContext = SQLContext(sc)
-
+# should check if empty (either user has no data, or user has all data filled)
 USER_ID = 33
 
 CLOUDSQL_INSTANCE_IP = sys.argv[1]
