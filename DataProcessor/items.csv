@@ -1,0 +1,30 @@
+id,title,category,price,tax
+0,i5 Desktop,computers,600,78
+1,22 inch 1080p Display,computers,240,31.2
+2,Logitech Mouse,computers,12,1.56
+3,K & R C,other,70,9.1
+4,Tales of Vesperia,other,61.38,7.9794
+5,Switch,other,379.45,49.3285
+6,Toothbrush,other,1.29,0.1677
+7,Toothpaste,other,2.33,0.3029
+8,Paper,other,5,0.65
+9,Pen,other,2,0.26
+10,Cookbook,other,20,2.6
+11,Milk,food,6,0.3
+12,Coffee,food,11,0.55
+13,Tea,food,4,0.2
+14,Cream,food,3,0.15
+15,Fruit,food,2,0.1
+16,Meat,food,6,0.3
+17,Skullcandy Headphones,computers,20,2.6
+18,Hearing Aid,computers,120,15.6
+19,Donuts,food,1,0.05
+20,Kicking Horse Coffee,food,12.99,0
+21,Parka,other,142.5,18.53
+22,Beats Power Bluetooth 3,computers,149.99,19.5
+23,Black Bonny,other,109.99,14.3
+24,Abs Drain,furnature,8.52,1.11
+25,Screw,furnature,2.97,0.3861
+26,Black Gloss,furnature,16.97,2.2061
+27,Refreshe Water,food,2.88,0.3744
+28,Farwest Sorrento Slide Sandal,other,19.98,2.6
