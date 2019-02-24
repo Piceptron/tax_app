@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS Receipt
 
 CREATE TABLE IF NOT EXISTS CurrentUser (
   id varchar(255),
+  userId varchar(255),
   username varchar(255),
   PRIMARY KEY(id),
   FOREIGN KEY (userId) REFERENCES User(id)
