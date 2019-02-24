@@ -1,13 +1,14 @@
 CREATE DATABASE IF NOT EXISTS product_recs;
 
 USE product_recs;
-
-DROP TABLE IF EXISTS User;
+SET FOREIGN_KEY_CHECKS=0; 
 DROP TABLE IF EXISTS Recommendation;
 DROP TABLE IF EXISTS Rating;
 DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS Receipt;
-
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS CurrentUser;
+SET FOREIGN_KEY_CHECKS=1; 
 CREATE TABLE IF NOT EXISTS User (
   id varchar(255),
   firstName varchar(255),
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Product
   price float,
   tax float,
   /*imageUrl varchar(255),*/
-  PRIMARY KEY (ID)
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE  IF NOT EXISTS Rating
@@ -35,10 +36,8 @@ CREATE TABLE  IF NOT EXISTS Rating
   productId varchar(255),
   rating int,
   PRIMARY KEY(productId, userId),
-  FOREIGN KEY (productId) 
-    REFERENCES Product(id),
-  FOREIGN KEY (userId)
-    REFERENCES User(id)
+  FOREIGN KEY (userId) REFERENCES User(id),
+  FOREIGN KEY (productId) REFERENCES Product(id)
 );
 
 CREATE TABLE  IF NOT EXISTS Recommendation
@@ -47,10 +46,8 @@ CREATE TABLE  IF NOT EXISTS Recommendation
   productId varchar(255),
   prediction float,
   PRIMARY KEY(userId, productId),
-  FOREIGN KEY (productId) 
-    REFERENCES Product(id),
-  FOREIGN KEY (userId)
-    REFERENCES User(id)
+  FOREIGN KEY (userId) REFERENCES User(id),
+  FOREIGN KEY (productId) REFERENCES Product(id)
 );
 
 CREATE TABLE IF NOT EXISTS Receipt
@@ -64,8 +61,13 @@ CREATE TABLE IF NOT EXISTS Receipt
   price float,
   tax float,
   PRIMARY KEY (id),
-  FOREIGN KEY (productId) 
-    REFERENCES Product(id),
-  FOREIGN KEY (userId)
-    REFERENCES User(id)
+  FOREIGN KEY (userId) REFERENCES User(id),
+  FOREIGN KEY (productId) REFERENCES Product(id)
+);
+
+CREATE TABLE IF NOT EXISTS CurrentUser (
+  id varchar(255),
+  userId varchar(255),
+  PRIMARY KEY(id),
+  FOREIGN KEY (userId) REFERENCES User(id)
 );
